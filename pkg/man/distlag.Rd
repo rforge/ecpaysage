@@ -41,18 +41,5 @@ This function was developped for the forthcoming R package ggene.
 % \seealso{
 % %% ~~objects to See Also as \code{\link{help}}, ~~~
 % }
-\examples{
-% data(sim03)
-% distlag(dist=sim03$coord,dmin=0, distance.lag=0.5, dist.lag.max=NULL)
-% distlag(dist=sim03$coord,dmin=0, distance.lag=2, dist.lag.max=NULL) 
-
-% x <- y <- seq(0,10, length.out=10)
-% coord <- expand.grid(x=x, y=y)
-% distlag(dist=coord,dmin=0.5, distance.lag=1, dist.lag.max=NULL)
-
-% distlag(dist=coord,dmin=0.5, distance.lag=2, dist.lag.max=10)
-% m<-dist(coord)
-% distlag(dist=m)
-
-
-}
+%\examples{
+%}

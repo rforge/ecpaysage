@@ -5,22 +5,6 @@
 }
  \source{The original data were made available by IGN (http://www.ign.fr/) and further rasterized using QGIS (http://www.qgis.org/fr/site/).
  } \examples{
-% data(r2) ; data(l104pt_merge)
-% colv<-rev(terrain.colors(10))
-% plot(r2,axes=FALSE, box=FALSE, col=colv) 
-% plot(l104pt_merge, add=TRUE, col="grey")
-% plot(l104pt_merge, add=TRUE, col=colv)
+data(l104pt_merge)
 
-% # add sampling points
-% data(xy104pt)
-% points(xy104pt, pch=3, cex=0.5)
-
-% # How can we produce the raster l104pt_merge from the list of individual rasters given in l104pt
-% \dontrun{
-% data(r2) ; data(l104pt)
-% rs <- l104pt[[1]]
-% for (i in 2:(length(l104pt))){
-% rs <- merge(rs, l104pt[[i]])
-% }
-% rs }
 }

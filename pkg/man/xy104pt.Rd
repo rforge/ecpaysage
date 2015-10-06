@@ -3,10 +3,7 @@
 }\format{ An object of class \code{SpatialPoints} (see package \code{sp}).
 }
  \examples{
-% data(r2) ; data(xy104pt)
-% colv<-rev(terrain.colors(10))
-% plot(r2,axes=FALSE, box=FALSE, col=colv) 
-% points(xy104pt, pch=3, cex=0.5)
+data(xy104pt)
 
 
 }

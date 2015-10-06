@@ -4,19 +4,6 @@
 }
  \source{The original data were made available by IGN (http://www.ign.fr/) and further rasterized using QGIS (http://www.qgis.org/fr/site/).
  } \examples{
-% # load data set
-% data(r2)
-
-% # plot raster
-% plot(r2, maxpixel=10000)
-
-% # examine raster basic information
-% r2
-
-% # what is the resolution ?
-% res(r2)
-
-% data(contours)
-% plot(r2, axes=FALSE, addfun=plot(contours, add=TRUE), box=FALSE) 
+ data(r2)
 
 }
