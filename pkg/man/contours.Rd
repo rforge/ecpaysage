@@ -5,8 +5,8 @@
  \source{The original data were made available by IGN (http://www.ign.fr/) and further rasterized using QGIS (http://www.qgis.org/fr/site/).
  } \examples{
 # load data set
-data(r2)
-data(contours)
-plot(r2, axes=FALSE, addfun=plot(contours, add=TRUE), box=FALSE) 
+% data(r2)
+% data(contours)
+% plot(r2, axes=FALSE, addfun=plot(contours, add=TRUE), box=FALSE) 
 
 }
