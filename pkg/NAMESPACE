@@ -1,3 +1,9 @@
 exportPattern("^[[:alpha:]]+")
 
+#importFrom(spatstat,ppp,ripras,rotate,edges,plot.ppp,clickpoly,inside.owin,owin)
+#importClassesFrom(spatstat,owin)
+#tab.disjonctif.prop {FactoMineR} | inside-R | A Community ...
+#dup.coords {geoR} | inside-R | A Community Site for R
+
+
 
