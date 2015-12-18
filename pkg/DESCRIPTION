@@ -1,12 +1,11 @@
 Package: ECPaysage
 Type: Package
 Title: A set of R resources to teach landscape ecology, landscape analysis and spatial statistics
-Version: 2.2
-Date: 2015-12-10
+Version: 2.3
+Date: 2015-12-18
 Author: J.-P. Rossi and the contributors to the EC Paysage training session
 Maintainer: You can complain to <rossi@supagro.inra.fr>
 Depends: R (>= 2.14), raster, spatstat
-Imports: spatstat
 Description: The scope of the package is not yet fully defined... but it deals with landscape analysis and spatial statistics for sure
 License: GPL (>= 2)
 LazyLoad: yes
