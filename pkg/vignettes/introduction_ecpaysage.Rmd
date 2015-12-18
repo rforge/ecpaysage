@@ -1,5 +1,5 @@
 ---
-title: "Introduction au package ECPaysage`"
+title: "Introduction au package `ECPaysage`"
 author: | 
   | Jean-Pierre Rossi
   | INRA - CBGP, Centre de Biologie pour la Gestion des Populations, Montpellier http://www6.montpellier.inra.fr/cbgp/
