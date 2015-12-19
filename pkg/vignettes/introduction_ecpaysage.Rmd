@@ -1,3 +1,4 @@
+
 ---
 title: "Introduction au package `ECPaysage`"
 author: | 
@@ -13,15 +14,17 @@ output:
      number_sections: yes
      toc: yes
      toc_depth: 4
-
 vignette: >
- %rmarkdown::html_vignette
   %\VignetteIndexEntry{introduction_ecpaysage}
-  %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
 ---
 
 #Présentation : comment lire les données contenues dans `ECPaysage`
+
+
+
+
 
 ```{r}
 library(ECPaysage)
