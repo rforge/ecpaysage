@@ -20,17 +20,36 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-#Présentation : comment lire les données contenues dans `ECPaysage`
-https://r-forge.r-project.org/R/?group_id=2141
+#`ECPaysage`, versions de R` et autres packages à installer
+
+Le package `ECPaysage` doit être installé sur une version de *R >= 3.2.2*.
+
+Il est également nécessaire d'avoir installé les packages suivants et leurs dépendances :
+
+`sp`, `rgdal`, `SDMTools`, `maptools`, `ade4`, `gstat` et `geoR`.
+
+`ECPaysage` n'est pas dépendant de ces packages au sens strict du terme mais ceux-ci seront utilisés au cours des TDs.
+
+Sous `R` tapez :
+```{r, eval=FALSE}
+install.packages("sp", dependencies=TRUE)
+install.packages("rgdal", dependencies=TRUE)
+install.packages("SDMTools", dependencies=TRUE)
+install.packages("maptools", dependencies=TRUE)
+install.packages("ade4", dependencies=TRUE)
+install.packages("gstat", dependencies=TRUE)
+install.packages("geoR", dependencies=TRUE)
+```
+
+#Comment lire les données contenues dans `ECPaysage`
+`ECPaysage` contient des jeux de données qui seront utilisés durant les TD de l'école chercheur. Certains jeux de données sont accessibles avec la fonction `data` d'autres sont stockés dans le dossier `extdata` qui se trouve dans le répertoire d'installation de `R`.
+
+Chargez le package :
 
 ```{r}
 library(ECPaysage)
-library(raster)
 ```
 
-Le chargement du package déclenche le chargement d'un certain nombre de ressources comme certaines fonctions appartenant à d'autre packages (par exemple ici `raster` et `sp`.) Il sera cependant nécessaire de charger manuellement certains packages non déclarés lors de la compilation de `ECPaysage`.
-
-L'intérêt du package est de permettre l'accès rapide et simple à une série de jeux de données permettant de travailler sous `R` sans rencontrer de problème avec les formats et les versions de fichier. Un problème que nous connaissons tous...
 
 Par exemple tapez :
 
@@ -41,12 +60,12 @@ data(xy104pt)
 `xy104pt` est un objet de la classe `SpatialPoints` (package `sp`) 
 
 ```{r}
-xy104pt
+head(xy104pt)
 ```
 
 Les données cartographiques ont été stockées dans leur format natif (geotiff, shapefile...) et peuvent être chargées avec les fonctions classiques de lecture de ces fichiers.
 
-Les données sont contenues dans le dossier `extdata` qui se trouve sur votre disque dur dans le dossier d'installation de `R`. On y accède facilement en suivant le chemin indiqué par la fonction `system.file`
+Les données sont contenues dans le dossier `extdata` qui se trouve sur votre disque dur dans le dossier d'installation de `R`. On y accède en suivant le chemin indiqué par la fonction `system.file`
 
 Tapez le code suivant pour savoir où se trouve ce dossier :
 
@@ -65,6 +84,7 @@ system.file("extdata/r.tif", package="ECPaysage")
 On peut lire ce fichier pour comme on le ferait pour n'importe quel autre fichier geotiff :
 
 ```{r}
+library(raster)
 r <- raster(system.file("extdata/r.tif", package="ECPaysage")) 
 ```
 
