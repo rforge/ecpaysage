@@ -26,12 +26,13 @@ Le package `ECPaysage` doit être installé sur une version de *R >= 3.2.2*.
 
 Il est également nécessaire d'avoir installé les packages suivants et leurs dépendances :
 
-`sp`, `rgdal`, `SDMTools`, `maptools`, `ade4`, `gstat` et `geoR`.
+`sp`, `rgdal`, `SDMTools`, `maptools`, `ade4`, `raster`, gstat` et `geoR`.
 
 `ECPaysage` n'est pas dépendant de ces packages au sens strict du terme mais ceux-ci seront utilisés au cours des TDs.
 
 Sous `R` tapez :
 ```{r, eval=FALSE}
+install.packages("raster", dependencies=TRUE)
 install.packages("sp", dependencies=TRUE)
 install.packages("rgdal", dependencies=TRUE)
 install.packages("SDMTools", dependencies=TRUE)
