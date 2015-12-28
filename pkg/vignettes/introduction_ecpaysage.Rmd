@@ -20,27 +20,50 @@ vignette: >
   \usepackage[utf8]{inputenc}
 ---
 
-#`ECPaysage`, versions de R` et autres packages à installer
+#`ECPaysage`, versions de R et autres packages à installer
 
 Le package `ECPaysage` doit être installé sur une version de *R >= 3.2.2*.
 
 Il est également nécessaire d'avoir installé les packages suivants et leurs dépendances :
 
-`sp`, `rgdal`, `SDMTools`, `maptools`, `ade4`, `raster`, gstat` et `geoR`.
+-`mvtnorm`
+
+-`RandomFields`
+
+-`splancs`
+
+-`FeedbackTS`
+
+-`ape`
+
+-`sp`
+
+-`rgdal`
+
+-`SDMTools`
+
+-`maptools`
+
+-`ade4`
+
+-`raster`
+
+-`gstat`
+
+-`geoR`
+
+-`R2jags`
+
+Pour `R2jags` il est également nécessaire d'installer **JAGS** (voir documentation du package `R2jags`)
 
 `ECPaysage` n'est pas dépendant de ces packages au sens strict du terme mais ceux-ci seront utilisés au cours des TDs.
 
-Sous `R` tapez :
+Par exemple sous `R` tapez :
 ```{r, eval=FALSE}
-install.packages("raster", dependencies=TRUE)
-install.packages("sp", dependencies=TRUE)
-install.packages("rgdal", dependencies=TRUE)
-install.packages("SDMTools", dependencies=TRUE)
-install.packages("maptools", dependencies=TRUE)
-install.packages("ade4", dependencies=TRUE)
-install.packages("gstat", dependencies=TRUE)
-install.packages("geoR", dependencies=TRUE)
+install.packages("nom du package", dependencies=TRUE)
 ```
+
+
 
 #Comment lire les données contenues dans `ECPaysage`
 `ECPaysage` contient des jeux de données qui seront utilisés durant les TD de l'école chercheur. Certains jeux de données sont accessibles avec la fonction `data` d'autres sont stockés dans le dossier `extdata` qui se trouve dans le répertoire d'installation de `R`.
@@ -168,5 +191,11 @@ Ce shapefile délimite le paysage décrit dans r.tif (voir plus haut).
 ###parcellaire_1962.shp
 ###parcellaire_2009.shp
 
+## Données disponibles en utilisant la fonction `data()`
+Tapez `?nom du jeu de données` pour afficher la description.
 
+###DONBIN
 
+###DONPG
+
+###xy104pt
