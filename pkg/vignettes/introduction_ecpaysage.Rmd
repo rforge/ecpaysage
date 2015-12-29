@@ -180,6 +180,8 @@ landuses:
 7 : proteol
 8 : tournesol
 
+###l104pt_1.tif à l104pt_104.tif
+Une série de 104 buffers circulaires de 600 m de rayon situés dans le raster r.
 
 ## Fichiers shape (.shp) dans le dossier `extdata/`
 
