@@ -54,7 +54,7 @@ Il est également nécessaire d'avoir installé les packages suivants et leurs d
 
 -`R2jags`
 
-Pour `R2jags` il est également nécessaire d'installer **JAGS** (voir documentation du package `R2jags`)
+Pour `R2jags` il est également nécessaire d'installer **JAGS** (http://mcmc-jags.sourceforge.net/, voir documentation du package `R2jags`)
 
 `ECPaysage` n'est pas dépendant de ces packages au sens strict du terme mais ceux-ci seront utilisés au cours des TDs.
 
