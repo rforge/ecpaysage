@@ -1,8 +1,8 @@
 Package: ECPaysage
 Type: Package
 Title: A set of R resources to teach landscape ecology, landscape analysis and spatial statistics
-Version: 2.7.0
-Date: 2015-01-06
+Version: 2.8.0
+Date: 2015-01-13
 Author: J.-P. Rossi and the contributors to the EC Paysage training session
 Maintainer: You can complain to <rossi@supagro.inra.fr>
 Depends: R (>= 3.2.2)

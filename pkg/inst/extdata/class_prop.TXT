@@ -1,0 +1,8 @@
+ID,Name,Enabled,IsBackground
+99,background,f,t
+3,cereales,t,f
+4,colza,t,f
+5,mais,t,f
+6,prairies,t,f
+7,proteol,t,f
+8,tournesol,t,f
