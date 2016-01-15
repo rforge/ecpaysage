@@ -1,5 +1,5 @@
 .onLoad <- function(libname, pkgname) {
-  packageStartupMessage("Vous avez chargé la version 2.8.0 du package ECPaysage. Bravo ! \n")
+  packageStartupMessage("Vous avez chargé la version 2.9.0 du package ECPaysage. Bravo ! \n")
 }
 
 # .onAttach <- function(libname, pkgname) {
