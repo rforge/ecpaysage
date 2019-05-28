@@ -1,0 +1,233 @@
+---
+title: "Introduction au package R ecpaysage2"
+output: rmarkdown::html_vignette
+author: "Jean-Pierre Rossi"
+date: "`r Sys.Date()`"
+vignette: >
+  %\VignetteIndexEntry{Introduction au package R ecpaysage2}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.dpi = 96)
+knitr::opts_chunk$set(fig.width=6, fig.height=6) 
+rm(list=ls())
+```
+
+
+- [0-Introduction](#intro)
+
+- [1-Installation](#install)
+
+- [2-Contenu](#contenu)
+
+- [3-Fonctions](#fonctions)
+
+- [4-Données](#données)
+
+- [5-Documentation](#documentation)
+
+- [6-Ressources complémentaires](#ressources)
+
+## 0-Introduction {#intro}
+
+`ecpaysage2` est un package R créé pour accompagner l'école chercheur *Paysage et santé des plantes : Analyser, comprendre et modéliser les processus écologiques en jeu*.
+
+Il contient des jeux de données et d'autres ressources qui seront utilisées durant la formation.
+
+Notez qu'`ecpaysage2` doit être installé sur une version de *R >= 3.2.2*.
+
+Il est également nécessaire d'avoir installé les packages suivants et leurs dépendances :
+
+-`mvtnorm`
+
+-`RandomFields`
+
+-`splancs`
+
+-`FeedbackTS`
+
+-`ape`
+
+-`sp`
+
+-`rgdal`
+
+-`SDMTools`
+
+-`maptools`
+
+-`ade4`
+
+-`raster`
+
+-`gstat`
+
+-`geoR`
+
+-`sf`
+
+`ECPaysage` n'est pas dépendant de ces packages au sens strict du terme mais ceux-ci seront utilisés au cours des TDs, il est donc préférable d'installer ces ressources *avant* l'école pour ne pas avoir de problème.
+
+**Comment intaller un package ?**
+
+Sous `R` (c'est-à-dire dans la console) tapez :
+
+```{r, eval=FALSE}
+install.packages("nom du package", dependencies=TRUE)
+```
+
+## 1-Installation du package ecpaysage2 {#install}
+
+Le package vous a été distribué sous la forme d'un fichier "source" ecpaysage2_x.x.tar.gz
+
+L'installation se fera donc "en local".
+
+Dans R :
+
+```{r, eval=FALSE}
+install.packages("...ecpaysage2_x.x.tar.gz", repos=NULL)
+```
+
+Sous linux :
+
+```{bash, eval=FALSE}
+R CMD INSTALL ...ecpaysage2_x.x.tar.gz 
+```
+
+
+où "...ecpaysage2_x.x.tar.gz" est le chemin complet vers le fichier ecpaysage2_x.x.tar.gz
+
+## 2-Contenu {#contenu}
+
+Le package contient de la documentation sous forme de fichier html (les fameuses vignettes ou "long-form documentation" de R et des jeux de données.
+
+## 3- Fonctions {#fonctions}
+`ecpaysage2` ne contient aucun fonction spécifique.
+
+## 4-Données {#données}
+
+### 4.1 Shape files
+
+`ecpaysage2` contient plusieurs fichiers shapefiles dont un jeu de deux fichiers complémentaires 
+
+- naizin_parcellaire_2013_L93.shp
+
+- naizin_lineaire_2013_L93.shp
+
+Il s'agit de données colectées par ... et ... [références biblio].
+
+Les fichiers se trouvent dans le dossier d'installation du package sur votre machine.
+
+On y accède de la façon suivnate :
+
+```{r}
+
+parcellairef <- paste(system.file(package="ecpaysage2"), '/extdata/', "naizin_parcellaire_2013_L93.shp", sep='')
+
+lineairef <- paste(system.file(package="ecpaysage2"), '/extdata/', "naizin_lineaire_2013_L93.shp", sep='')
+
+library(sf) ; library(maptools)
+
+naizin.parcel <- sf::st_read(parcellairef)
+
+naizin.haie <- sf::st_read(lineairef)
+
+maptools::getinfo.shape(parcellairef)
+unique(naizin.parcel$TYPE)
+  
+plot(naizin.parcel[,4], pal=c("orange","gold","springgreen1","darkolivegreen1", "darkviolet","brown1","snow","forestgreen","darkgrey","cadetblue1"), main="Type d'occupation du sol")
+
+```
+
+```{r}
+plot(naizin.parcel[,4], col="white") ; plot(naizin.haie, col="red", add=T, type="l", main="")
+```
+
+### 4.2 Rasters
+
+Le package contient un ficher raster utilisé comme exemple dans les TD de l'école.
+
+Comme dans le cas des shapefiles, il se trouve sur votre machine dans le dossier "extdata" associé au package ecpaysage2.
+
+Tapez le code suivant pour savoir où se trouve ce dossier :
+
+```{r}
+system.file("extdata", package="ecpaysage2")
+```
+
+
+Pour lire un fichier contenu dans le dossier `extdata` il faut connaître le chemin complet vers ce fichier. Par exemple, pour le fichier `r.tif` la fonction `system.file` indique :
+
+```{r}
+system.file("extdata/r.tif", package="ecpaysage2")
+```
+
+On peut lire ce fichier comme on le fait pour n'importe quel autre fichier geotiff :
+
+```{r}
+library(raster)
+r <- raster(system.file("extdata/r.tif", package="ecpaysage2")) 
+```
+
+`r` est un objet de la classe `RasterLayer` (package `raster`)
+
+```{r}
+r
+```
+
+```{r}
+plot(r)
+```
+
+ecpaysage2 contient une série de fichiers dont le shapefile `contours` :
+
+```{r}
+library(maptools)
+contours <- readShapeSpatial(system.file("extdata/contours.shp", package="ecpaysage2"))
+contours
+```
+
+`contours` est un objet de la class `SpatialPolygonsDataFrame` (package `sp`)
+  
+```{r}
+plot(contours)
+```
+
+`RasterLayer` et `SpatialPolygonsDataFrame` peuvent être superposés avec la fonction `plot` de `raster`:
+ 
+```{r}
+plot(r, axes=F, addfun=plot(contours, add=TRUE), box=F) 
+```
+
+## 5-Documentation {#documentation}
+
+Le package contient un fichier de documentation sous la forme de vignette (traditionnelles sous R). On peut les consulter à partir de la console R :
+
+```{r, eval=FALSE}
+library(ecpaysage2)
+vignette(package="ecpaysage2")
+```
+
+ou plus directement :
+
+```{r, eval=FALSE}
+vignette("ecpaysage2_intro") 
+```
+
+## 6-Ressources complémentaires {#ressources} 
+
+Le package `landscapemetrics` sorti récemment permet de calculer toute les métriques paysagères auparavant uniquement disponibles dans `Fragstats`.
+
+```{r, eval=F}
+install.packages(pkgs="landscapemetrics", dependencies=TRUE)
+```
+
+Le package `landscapeR` permet de simuler des paysages simples sous forme de rasters.
+
+
+
+
+
+
